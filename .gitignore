@@ -3,4 +3,7 @@
 *.o
 
 # executable
-ex00/
+ex00/Polymorphisme
+ex01/PolymorphismeBrain
+ex02/Abstrait
+ex03/Materia
