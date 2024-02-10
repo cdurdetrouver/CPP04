@@ -6,7 +6,7 @@
 /*   By: gbazart <gbazart@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 18:06:01 by gbazart           #+#    #+#             */
-/*   Updated: 2024/02/06 14:23:20 by gbazart          ###   ########.fr       */
+/*   Updated: 2024/02/10 15:58:39 by gbazart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Cat : public Animal
 		Cat(const Cat& cat);
 		~Cat();
 
-		void	operator=(const Cat& cat);
+		Cat		&operator=(const Cat& cat);
 
 		void	makeSound(void) const;
 };

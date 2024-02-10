@@ -6,7 +6,7 @@
 /*   By: gbazart <gbazart@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 14:30:04 by gbazart           #+#    #+#             */
-/*   Updated: 2024/02/06 14:40:22 by gbazart          ###   ########.fr       */
+/*   Updated: 2024/02/10 16:07:17 by gbazart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,14 @@ WrongCat::WrongCat(const WrongCat& wrongcat) : WrongAnimal(wrongcat.type)
 	std::cout << "Copy Constructor called for WrongCat" << std::endl;
 }
 
-void	WrongCat::operator=(const WrongCat& wrongcat)
+WrongCat	&WrongCat::operator=(const WrongCat& wrongcat)
 {
 	std::cout << "Copy Constructor called for WrongCat" << std::endl;
-	this->type = wrongcat.type;
+	if (this != &wrongcat)
+	{
+		this->type = wrongcat.type;
+	}
+	return (*this);
 }
 
 void	WrongCat::makeSound(void) const

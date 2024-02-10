@@ -6,7 +6,7 @@
 /*   By: gbazart <gbazart@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 15:01:35 by gbazart           #+#    #+#             */
-/*   Updated: 2024/02/06 16:18:01 by gbazart          ###   ########.fr       */
+/*   Updated: 2024/02/10 16:06:21 by gbazart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Brain
 		Brain(const Brain& Brain);
 		~Brain();
 
-		void	operator=(const Brain& Brain);
+		Brain	&operator=(const Brain& Brain);
 };
 
 #endif

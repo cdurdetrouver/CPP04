@@ -6,7 +6,7 @@
 /*   By: gbazart <gbazart@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 17:59:33 by gbazart           #+#    #+#             */
-/*   Updated: 2024/02/06 14:23:16 by gbazart          ###   ########.fr       */
+/*   Updated: 2024/02/10 15:58:46 by gbazart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ class Animal
 		Animal(const Animal& animal);
 		virtual ~Animal();
 
-		void operator=(const Animal &animal);
+		Animal			&operator=(const Animal &animal);
 
 		virtual	void	makeSound(void) const;
-		std::string	getType(void) const;
+		std::string		getType(void) const;
 };
 
 

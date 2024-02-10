@@ -6,7 +6,7 @@
 /*   By: gbazart <gbazart@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 14:29:08 by gbazart           #+#    #+#             */
-/*   Updated: 2024/02/06 14:36:11 by gbazart          ###   ########.fr       */
+/*   Updated: 2024/02/10 16:11:56 by gbazart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ class WrongCat : public WrongAnimal
 		WrongCat(const WrongCat& wrongcat);
 		~WrongCat();
 
-		void	operator=(const WrongCat& wrongcat);
+		WrongCat	&operator=(const WrongCat& wrongcat);
 
-		void	makeSound(void) const;
+		void		makeSound(void) const;
 };
 
 

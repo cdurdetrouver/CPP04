@@ -6,7 +6,7 @@
 /*   By: gbazart <gbazart@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 18:00:13 by gbazart           #+#    #+#             */
-/*   Updated: 2024/02/06 14:53:40 by gbazart          ###   ########.fr       */
+/*   Updated: 2024/02/10 16:15:10 by gbazart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,13 @@ Animal::Animal(const Animal &animal)
 	this->type = animal.type;
 }
 
-void	Animal::operator=(const Animal &animal)
+Animal	&Animal::operator=(const Animal &animal)
 {
-	this->type = animal.type;
+	if (this != &animal)
+	{
+		this->type = animal.type;
+	}
+	return (*this);
 }
 
 void	Animal::makeSound(void) const

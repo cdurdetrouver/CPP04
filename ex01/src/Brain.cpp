@@ -6,7 +6,7 @@
 /*   By: gbazart <gbazart@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 15:02:31 by gbazart           #+#    #+#             */
-/*   Updated: 2024/02/06 16:24:43 by gbazart          ###   ########.fr       */
+/*   Updated: 2024/02/10 16:08:09 by gbazart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,15 @@ Brain::Brain(const Brain& Brain)
 	}
 }
 
-void	Brain::operator=(const Brain& Brain)
+Brain	&Brain::operator=(const Brain& Brain)
 {
 	std::cout << "Operator Assignement called for Brain" << std::endl;
-	for (int i = 0; i < 100; i ++)
+	if (this != &Brain)
 	{
-		this->ideas[i] = Brain.ideas[i];
+		for (int i = 0; i < 100; i ++)
+		{
+			this->ideas[i] = Brain.ideas[i];
+		}
 	}
+	return (*this);
 }

@@ -6,7 +6,7 @@
 /*   By: gbazart <gbazart@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 17:57:38 by gbazart           #+#    #+#             */
-/*   Updated: 2024/02/06 15:10:01 by gbazart          ###   ########.fr       */
+/*   Updated: 2024/02/10 16:04:10 by gbazart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int main(void)
 	delete j;
 
 	std::cout << std::endl;
-	std::cout << "Wrong Animal Tetst" << std::endl;
+	std::cout << "Wrong Animal Test" << std::endl;
 	std::cout << std::endl;
 
 	const WrongAnimal* meta2 = new WrongAnimal();

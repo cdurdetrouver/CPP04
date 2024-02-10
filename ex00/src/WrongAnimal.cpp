@@ -6,7 +6,7 @@
 /*   By: gbazart <gbazart@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 14:31:49 by gbazart           #+#    #+#             */
-/*   Updated: 2024/02/06 14:37:48 by gbazart          ###   ########.fr       */
+/*   Updated: 2024/02/10 16:02:18 by gbazart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,13 @@ WrongAnimal::WrongAnimal(const WrongAnimal &WrongAnimal)
 	this->type = WrongAnimal.type;
 }
 
-void	WrongAnimal::operator=(const WrongAnimal &WrongAnimal)
+WrongAnimal	&WrongAnimal::operator=(const WrongAnimal &WrongAnimal)
 {
-	this->type = WrongAnimal.type;
+	if (this != &WrongAnimal)
+	{
+		this->type = WrongAnimal.type;
+	}
+	return (*this);
 }
 
 void	WrongAnimal::makeSound(void) const

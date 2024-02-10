@@ -6,7 +6,7 @@
 /*   By: gbazart <gbazart@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 18:07:20 by gbazart           #+#    #+#             */
-/*   Updated: 2024/02/06 14:23:26 by gbazart          ###   ########.fr       */
+/*   Updated: 2024/02/10 15:58:59 by gbazart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Dog : public Animal
 		Dog(const Dog& dog);
 		~Dog();
 
-		void	operator=(const Dog &dog);
+		Dog		&operator=(const Dog &dog);
 
 		void	makeSound(void) const;
 };

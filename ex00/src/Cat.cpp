@@ -6,7 +6,7 @@
 /*   By: gbazart <gbazart@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 18:06:40 by gbazart           #+#    #+#             */
-/*   Updated: 2024/02/06 14:39:28 by gbazart          ###   ########.fr       */
+/*   Updated: 2024/02/10 16:01:02 by gbazart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,14 @@ Cat::Cat(const Cat& cat) : Animal(cat.type)
 	std::cout << "Copy Constructor called for Cat" << std::endl;
 }
 
-void	Cat::operator=(const Cat& cat)
+Cat	&Cat::operator=(const Cat& cat)
 {
 	std::cout << "Operator Assignement called for Cat" << std::endl;
-	this->type = cat.type;
+	if (this != &cat)
+	{
+		this->type = cat.type;
+	}
+	return (*this);
 }
 
 void	Cat::makeSound(void) const

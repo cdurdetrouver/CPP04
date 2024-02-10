@@ -6,7 +6,7 @@
 /*   By: gbazart <gbazart@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 18:06:58 by gbazart           #+#    #+#             */
-/*   Updated: 2024/02/06 15:08:18 by gbazart          ###   ########.fr       */
+/*   Updated: 2024/02/10 16:13:56 by gbazart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,14 @@ Dog::Dog(const Dog &dog) : Animal(dog.type)
 	std::cout << "Copy Constructor called for Dog" << std::endl;
 }
 
-void	Dog::operator=(const Dog &dog)
+Dog	&Dog::operator=(const Dog &dog)
 {
 	std::cout << "Operator Assignement called for Dog" << std::endl;
-	this->type = dog.type;
+	if (this != &dog)
+	{
+		this->type = dog.type;
+	}
+	return (*this);
 }
 
 void	Dog::makeSound(void) const
