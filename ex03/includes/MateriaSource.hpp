@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gbazart <gbazart@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gbazart <gabriel.bazart@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 16:50:10 by gbazart           #+#    #+#             */
-/*   Updated: 2024/02/10 18:14:37 by gbazart          ###   ########.fr       */
+/*   Updated: 2024/02/11 00:38:50 by gbazart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,15 @@
 class MateriaSource : public IMateriaSource
 {
 	private:
-
+		AMateria		*items[4];
 	public:
 		MateriaSource(void);
 		MateriaSource(const MateriaSource &MateriaSource);
-		MateriaSource(const std::string name);
 		~MateriaSource();
 
-		MateriaSource			&operator=(const MateriaSource &MateriaSource);
-		void learnMateria(AMateria*);
-		AMateria* createMateria(std::string const & type);
+		MateriaSource	&operator=(const MateriaSource &MateriaSource);
+		void			learnMateria(AMateria *materia);
+		AMateria*		createMateria(std::string const & type);
 };
 
 #endif

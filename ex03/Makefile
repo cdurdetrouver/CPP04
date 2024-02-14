@@ -2,7 +2,7 @@ NAME = Materia
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -I$(INCLUDE)
 INCLUDE = includes
 SRC_DIR = src
-SRC = src/main.cpp src/Cat.cpp src/Dog.cpp src/Animal.cpp src/WrongCat.cpp src/WrongAnimal.cpp src/Brain.cpp
+SRC = src/main.cpp src/AMateria.cpp src/Character.cpp src/Cure.cpp src/Ice.cpp src/MateriaSource.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)

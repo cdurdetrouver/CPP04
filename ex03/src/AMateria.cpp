@@ -3,34 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gbazart <gbazart@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gbazart <gabriel.bazart@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/10 18:28:54 by gbazart           #+#    #+#             */
-/*   Updated: 2024/02/10 18:32:41 by gbazart          ###   ########.fr       */
+/*   Created: 2024/02/11 00:53:24 by gbazart           #+#    #+#             */
+/*   Updated: 2024/02/11 00:58:21 by gbazart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
 
-AMateria::AMateria(void)
+AMateria::AMateria(void) : type("undefined")
 {
-	this->type = "undefined";
+	std::cout << "Default AMateria created with type: " << type << std::endl;
 }
 
-AMateria::AMateria(std::string const & type)
+AMateria::AMateria(std::string const & type) : type(type)
 {
-	this->type = type;
+	std::cout << "Creating AMateria with type: " << type << std::endl;
 }
 
 AMateria::AMateria(const AMateria &materia)
 {
-	this->type = materia.type;
+	std::cout << "Copying AMateria with type: " << materia.type << std::endl;
+	*this = materia;
 }
 
 AMateria	&AMateria::operator=(const AMateria &materia)
 {
 	if (this != &materia)
 	{
+		std::cout << "Assigning AMateria with type: " << materia.type << std::endl;
 		this->type = materia.type;
 	}
 	return (*this);
@@ -38,7 +40,7 @@ AMateria	&AMateria::operator=(const AMateria &materia)
 
 AMateria::~AMateria()
 {
-
+	std::cout << "Deleting AMateria with type: " << this->type << std::endl;
 }
 
 std::string const	&AMateria::getType() const
@@ -48,4 +50,5 @@ std::string const	&AMateria::getType() const
 
 void	AMateria::use(ICharacter& target)
 {
+	std::cout << "Using AMateria of type: " << this->type << " on target: " << target.getName() << std::endl;
 }

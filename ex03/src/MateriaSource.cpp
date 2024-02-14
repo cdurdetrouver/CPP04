@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gbazart <gbazart@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gbazart <gabriel.bazart@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/10 18:15:05 by gbazart           #+#    #+#             */
-/*   Updated: 2024/02/10 18:23:59 by gbazart          ###   ########.fr       */
+/*   Created: 2024/02/11 00:55:41 by gbazart           #+#    #+#             */
+/*   Updated: 2024/02/11 00:55:45 by gbazart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,67 @@
 
 MateriaSource::MateriaSource(void)
 {
-
+	std::cout << "Creating MateriaSource" << std::endl;
+	for(int i = 0; i < 4; i++)
+	{
+		this->items[i] = NULL;
+	}
 }
 
-MateriaSource::MateriaSource(const MateriaSource &MateriaSource)
+MateriaSource::MateriaSource(const MateriaSource &materiaSource)
 {
-
-}
-
-MateriaSource::MateriaSource(const std::string name)
-{
-
+	std::cout << "Copying MateriaSource" << std::endl;
+	*this = materiaSource;
 }
 
 MateriaSource::~MateriaSource()
 {
-
+	std::cout << "Deleting MateriaSource" << std::endl;
+	for(int i = 0; i < 4; i++)
+	{
+		delete this->items[i];
+	}
 }
 
-MateriaSource			&MateriaSource::operator=(const MateriaSource &MateriaSource)
+MateriaSource &MateriaSource::operator=(const MateriaSource &materiaSource)
 {
-
+	if (this != &materiaSource)
+	{
+		std::cout << "Assigning MateriaSource" << std::endl;
+		for(int i = 0; i < 4; i++)
+		{
+			this->items[i] = materiaSource.items[i];
+		}
+	}
+	return (*this);
 }
 
-void MateriaSource::learnMateria(AMateria*)
+void MateriaSource::learnMateria(AMateria *materia)
 {
+	std::cout << "Learning materia of type: " << materia->getType() << std::endl;
+	int i = 0;
 
+	while (i < 4 && this->items[i])
+		i++;
+	if (i == 4)
+	{
+		std::cout << "No available slot to learn materia" << std::endl;
+		return;
+	}
+	this->items[i] = materia;
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type)
 {
-
+	std::cout << "Creating materia of type: " << type << std::endl;
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->items[i] && this->items[i]->getType() == type)
+		{
+			std::cout << "Found matching materia at index: " << i << std::endl;
+			return (this->items[i]->clone());
+		}
+	}
+	std::cout << "No matching materia found" << std::endl;
+	return (NULL);
 }
