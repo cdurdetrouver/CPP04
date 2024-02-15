@@ -6,7 +6,7 @@
 /*   By: gbazart <gabriel.bazart@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 00:53:11 by gbazart           #+#    #+#             */
-/*   Updated: 2024/02/11 01:04:35 by gbazart          ###   ########.fr       */
+/*   Updated: 2024/02/15 16:14:55 by gbazart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ Character::Character(const Character &character)
 Character::~Character()
 {
 	std::cout << "Deleting character: " << this->name << std::endl;
-	for (int i = 0; i < 4; i++)
-	{
-		delete this->items[i];
-	}
+	// for (int i = 0; i < 4; i++)
+	// {
+	// 	delete this->items[i];
+	// }
 }
 
 Character &Character::operator=(const Character &character)
@@ -75,7 +75,6 @@ void Character::equip(AMateria* m)
 		std::cout << "Trying to equip a NULL materia" << std::endl;
 		return;
 	}
-
 	for (int i = 0; i < 4; i++)
 	{
 		if (this->items[i] == NULL)
@@ -85,9 +84,7 @@ void Character::equip(AMateria* m)
 			return;
 		}
 	}
-
-	std::cout << "No available slot to equip " << m->getType() << ". Deleting the materia." << std::endl;
-	delete m;
+	std::cout << "No available slot to equip " << m->getType() << std::endl;
 }
 
 void Character::unequip(int idx)
