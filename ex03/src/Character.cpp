@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gbazart <gabriel.bazart@gmail.com>         +#+  +:+       +#+        */
+/*   By: gbazart <gbazart@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 00:53:11 by gbazart           #+#    #+#             */
-/*   Updated: 2024/02/15 16:14:55 by gbazart          ###   ########.fr       */
+/*   Updated: 2024/02/17 17:32:49 by gbazart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,15 @@
 Character::Character(void) : name("undefined")
 {
 	std::cout << "Default character created with name: " << name << std::endl;
-	for(int i = 0; i < 4; i++)
-	{
+	for (int i = 0; i < 4; i++)
 		this->items[i] = NULL;
-	}
 }
 
 Character::Character(const std::string name) : name(name)
 {
 	std::cout << "Creating character: " << name << std::endl;
-	for(int i = 0; i < 4; i++)
-	{
+	for (int i = 0; i < 4; i++)
 		this->items[i] = NULL;
-	}
 }
 
 Character::Character(const Character &character)
@@ -36,17 +32,19 @@ Character::Character(const Character &character)
 	this->name = character.name;
 	for (int i = 0; i < 4; i++)
 	{
-		this->items[i] = character.items[i];
+		if (character.items[i])
+			this->items[i] = character.items[i]->clone();
 	}
 }
 
 Character::~Character()
 {
 	std::cout << "Deleting character: " << this->name << std::endl;
-	// for (int i = 0; i < 4; i++)
-	// {
-	// 	delete this->items[i];
-	// }
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->items[i] != NULL)
+			delete this->items[i];
+	}
 }
 
 Character &Character::operator=(const Character &character)
@@ -57,7 +55,10 @@ Character &Character::operator=(const Character &character)
 		this->name = character.name;
 		for (int i = 0; i < 4; i++)
 		{
-			this->items[i] = character.items[i];
+			delete this->items[i];
+			this->items[i] = NULL;
+			if (character.items[i])
+				this->items[i] = character.items[i]->clone();
 		}
 	}
 	return (*this);
@@ -95,13 +96,16 @@ void Character::unequip(int idx)
 		this->items[idx] = NULL;
 	}
 	else if (this->items[idx] == NULL)
-	{
 		std::cout << "Nothing are equiped at this index : " << idx << std::endl;
-	}
 	else
-	{
 		std::cout << "Invalid index: " << idx << std::endl;
-	}
+}
+
+AMateria			*Character::getItem(int idx)
+{
+	if (idx >= 0 && idx <= 3)
+		return (this->items[idx]);
+	return (NULL);
 }
 
 void Character::use(int idx, ICharacter& target)
@@ -114,12 +118,8 @@ void Character::use(int idx, ICharacter& target)
 			this->items[idx]->use(target);
 		}
 		else
-		{
 			std::cout << "No item at index: " << idx << std::endl;
-		}
 	}
 	else
-	{
 		std::cout << "Invalid index: " << idx << std::endl;
-	}
 }

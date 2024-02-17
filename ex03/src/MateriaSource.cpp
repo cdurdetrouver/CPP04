@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gbazart <gabriel.bazart@gmail.com>         +#+  +:+       +#+        */
+/*   By: gbazart <gbazart@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 00:55:41 by gbazart           #+#    #+#             */
-/*   Updated: 2024/02/11 00:55:45 by gbazart          ###   ########.fr       */
+/*   Updated: 2024/02/17 17:37:20 by gbazart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,24 @@ MateriaSource::MateriaSource(void)
 {
 	std::cout << "Creating MateriaSource" << std::endl;
 	for(int i = 0; i < 4; i++)
-	{
 		this->items[i] = NULL;
-	}
 }
 
 MateriaSource::MateriaSource(const MateriaSource &materiaSource)
 {
 	std::cout << "Copying MateriaSource" << std::endl;
-	*this = materiaSource;
+	if (this != &materiaSource)
+	{
+		for(int i = 0; i < 4; i++)
+			this->items[i] = materiaSource.items[i]->clone();
+	}
 }
 
 MateriaSource::~MateriaSource()
 {
 	std::cout << "Deleting MateriaSource" << std::endl;
 	for(int i = 0; i < 4; i++)
-	{
 		delete this->items[i];
-	}
 }
 
 MateriaSource &MateriaSource::operator=(const MateriaSource &materiaSource)
@@ -43,7 +43,7 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &materiaSource)
 		std::cout << "Assigning MateriaSource" << std::endl;
 		for(int i = 0; i < 4; i++)
 		{
-			this->items[i] = materiaSource.items[i];
+			this->items[i] = materiaSource.items[i]->clone();
 		}
 	}
 	return (*this);
@@ -56,7 +56,7 @@ void MateriaSource::learnMateria(AMateria *materia)
 
 	while (i < 4 && this->items[i])
 		i++;
-	if (i == 4)
+	if (i >= 4)
 	{
 		std::cout << "No available slot to learn materia" << std::endl;
 		return;
