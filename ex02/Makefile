@@ -2,7 +2,7 @@ NAME = Abstrait
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -I$(INCLUDE)
 INCLUDE = includes
 SRC_DIR = src
-SRC = src/main.cpp src/Cat.cpp src/Dog.cpp src/Animal.cpp src/WrongCat.cpp src/WrongAnimal.cpp src/Brain.cpp
+SRC = src/main.cpp src/Cat.cpp src/Dog.cpp src/AAnimal.cpp src/WrongCat.cpp src/WrongAnimal.cpp src/Brain.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gbazart <gabriel.bazart@gmail.com>         +#+  +:+       +#+        */
+/*   By: gbazart <gbazart@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 00:53:02 by gbazart           #+#    #+#             */
-/*   Updated: 2024/02/11 00:54:25 by gbazart          ###   ########.fr       */
+/*   Updated: 2024/02/19 13:41:20 by gbazart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,29 @@
 
 Cure::Cure(void) : AMateria("cure")
 {
-	std::cout << "Default Cure created" << std::endl;
+	if (DEBUG)
+		std::cout << "Default Cure created" << std::endl;
 }
 
 Cure::Cure(const Cure &cure) : AMateria("cure")
 {
-	std::cout << "Copying Cure" << std::endl;
+	if (DEBUG)
+		std::cout << "Copying Cure" << std::endl;
 	*this = cure;
 }
 
 Cure::~Cure()
 {
-	std::cout << "Deleting Cure" << std::endl;
+	if (DEBUG)
+		std::cout << "Deleting Cure" << std::endl;
 }
 
 Cure &Cure::operator=(const Cure &cure)
 {
 	if (this != &cure)
 	{
-		std::cout << "Assigning Cure" << std::endl;
+		if (DEBUG)
+			std::cout << "Assigning Cure" << std::endl;
 		this->type = cure.getType();
 	}
 	return (*this);
@@ -40,7 +44,8 @@ Cure &Cure::operator=(const Cure &cure)
 
 AMateria* Cure::clone() const
 {
-	std::cout << "Cloning Cure" << std::endl;
+	if (DEBUG)
+		std::cout << "Cloning Cure" << std::endl;
 	return (new Cure());
 }
 

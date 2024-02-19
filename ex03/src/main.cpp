@@ -6,9 +6,10 @@
 /*   By: gbazart <gbazart@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 16:41:02 by gbazart           #+#    #+#             */
-/*   Updated: 2024/02/17 17:33:56 by gbazart          ###   ########.fr       */
+/*   Updated: 2024/02/19 13:48:33 by gbazart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "IMateriaSource.hpp"
 #include "ICharacter.hpp"
@@ -17,13 +18,32 @@
 #include "Cure.hpp"
 #include "Ice.hpp"
 
-int	main(void)
+void subject()
 {
-	ICharacter		*me;
-	ICharacter		*bob;
-	IMateriaSource	*src;
-	AMateria		*tmp;
-	AMateria		*floor[42];
+	IMateriaSource* src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
+	ICharacter* me = new Character("me");
+	AMateria* tmp;
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+	ICharacter* bob = new Character("bob");
+	me->use(0, *bob);
+	me->use(1, *bob);
+	delete bob;
+	delete me;
+	delete src;
+}
+
+void	more_test(void)
+{
+	Character		*me;
+	Character		*bob;
+	MateriaSource	*src;
+	AMateria		*floor[42] = {NULL};
+	int j = 0;
 
 	me = new Character("me");
 	bob = new Character("bob");
@@ -32,32 +52,38 @@ int	main(void)
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
 
-	tmp = src->createMateria("ice");
-	me->equip(tmp);
+	me->equip(src->createMateria("ice"));
 
-	tmp = src->createMateria("cure");
-	me->equip(tmp);
+	me->equip(src->createMateria("cure"));
 
-	tmp = src->createMateria("fire");
-	me->equip(tmp);
+	me->equip(src->createMateria("fire"));
 
 	me->use(0, *bob);
 	me->use(1, *bob);
 	me->use(2, *bob);
 	me->use(3, *bob);
 
-	bob = me;
+	*(bob) = *(me);
 
-	floor[0] = ((Character *)me)->getItem(0);
+	floor[j++] = me->getItem(0);
 	me->unequip(0);
-	floor[1] = ((Character *)me)->getItem(1);
+	floor[j++] = me->getItem(1);
 	me->unequip(1);
 
-	delete floor[0];
-	delete floor[1];
+	for (int i = 0; i < 42; i++)
+		delete floor[i];
 	delete src;
 	delete bob;
-	// delete bob;
+	delete me;
 
-	return 0;
+}
+
+int main(void)
+{
+	std::cout << "--------------------" << std::endl;
+	std::cout << "MANDATORY TEST" << std::endl;
+	subject();
+	std::cout << "--------------------" << std::endl;
+	std::cout << "PERSONNALIZE TEST" << std::endl;
+	more_test();
 }

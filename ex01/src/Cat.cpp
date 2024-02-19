@@ -6,7 +6,7 @@
 /*   By: gbazart <gbazart@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 18:06:40 by gbazart           #+#    #+#             */
-/*   Updated: 2024/02/10 16:06:50 by gbazart          ###   ########.fr       */
+/*   Updated: 2024/02/19 13:58:28 by gbazart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ Cat	&Cat::operator=(const Cat& cat)
 	if (this != &cat)
 	{
 		this->type = cat.type;
+		delete this->brain;
+		this->brain = new Brain();
+		this->brain = cat.brain;
 	}
 	return (*this);
 }

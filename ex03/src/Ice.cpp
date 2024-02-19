@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gbazart <gabriel.bazart@gmail.com>         +#+  +:+       +#+        */
+/*   By: gbazart <gbazart@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 00:54:05 by gbazart           #+#    #+#             */
-/*   Updated: 2024/02/11 00:54:19 by gbazart          ###   ########.fr       */
+/*   Updated: 2024/02/19 13:41:56 by gbazart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,28 @@
 
 Ice::Ice(void) : AMateria("ice")
 {
-	std::cout << "Default Ice created" << std::endl;
+	if (DEBUG)
+		std::cout << "Default Ice created" << std::endl;
 }
 
 Ice::Ice(const Ice &ice) : AMateria("ice")
 {
-	std::cout << "Copying Ice" << std::endl;
+	if (DEBUG)
+		std::cout << "Copying Ice" << std::endl;
 	*this = ice;
 }
 
 Ice::~Ice()
 {
-	std::cout << "Deleting Ice" << std::endl;
+	if (DEBUG)
+		std::cout << "Deleting Ice" << std::endl;
 }
 
 Ice &Ice::operator=(const Ice &ice)
 {
 	if (this != &ice)
 	{
+		if (DEBUG)
 		std::cout << "Assigning Ice" << std::endl;
 		this->type = ice.getType();
 	}
@@ -40,7 +44,8 @@ Ice &Ice::operator=(const Ice &ice)
 
 AMateria* Ice::clone() const
 {
-	std::cout << "Cloning Ice" << std::endl;
+	if (DEBUG)
+		std::cout << "Cloning Ice" << std::endl;
 	return (new Ice());
 }
 

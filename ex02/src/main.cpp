@@ -6,20 +6,20 @@
 /*   By: gbazart <gbazart@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 17:57:38 by gbazart           #+#    #+#             */
-/*   Updated: 2024/02/10 16:15:33 by gbazart          ###   ########.fr       */
+/*   Updated: 2024/02/19 13:54:19 by gbazart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "WrongCat.hpp"
 #include "WrongAnimal.hpp"
 
 int main(void)
 {
 	size_t	tab_size = 10;
-	Animal *animals[tab_size];
+	AAnimal *animals[tab_size];
 
 	for (size_t i = 0; i < tab_size ; i++)
 	{
@@ -38,7 +38,7 @@ int main(void)
 		delete animals[i];
 
 	// instancire un objet de classe animal
-	// Animal* animal = new Animal();
+	// AAnimal animal();
 	// animal->makeSound();
 	// delete animal;
 

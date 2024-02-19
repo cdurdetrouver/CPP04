@@ -6,13 +6,13 @@
 /*   By: gbazart <gbazart@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 18:06:58 by gbazart           #+#    #+#             */
-/*   Updated: 2024/02/10 16:13:56 by gbazart          ###   ########.fr       */
+/*   Updated: 2024/02/19 13:53:42 by gbazart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog(void) : Animal("Dog")
+Dog::Dog(void) : AAnimal("Dog")
 {
 	std::cout << "Default Constructor called for Dog" << std::endl;
 	this->brain = new Brain();
@@ -24,7 +24,7 @@ Dog::~Dog()
 	delete this->brain;
 }
 
-Dog::Dog(const Dog &dog) : Animal(dog.type)
+Dog::Dog(const Dog &dog) : AAnimal(dog.type)
 {
 	std::cout << "Copy Constructor called for Dog" << std::endl;
 }

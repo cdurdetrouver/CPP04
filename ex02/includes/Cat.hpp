@@ -6,17 +6,17 @@
 /*   By: gbazart <gbazart@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 18:06:01 by gbazart           #+#    #+#             */
-/*   Updated: 2024/02/10 16:11:27 by gbazart          ###   ########.fr       */
+/*   Updated: 2024/02/19 13:53:50 by gbazart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CAT_HPP
 # define CAT_HPP
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
 
-class Cat : public Animal
+class Cat : public AAnimal
 {
 	private:
 		Brain*		brain;

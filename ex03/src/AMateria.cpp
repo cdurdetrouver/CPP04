@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gbazart <gabriel.bazart@gmail.com>         +#+  +:+       +#+        */
+/*   By: gbazart <gbazart@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 00:53:24 by gbazart           #+#    #+#             */
-/*   Updated: 2024/02/11 00:58:21 by gbazart          ###   ########.fr       */
+/*   Updated: 2024/02/19 13:38:11 by gbazart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,20 @@
 
 AMateria::AMateria(void) : type("undefined")
 {
-	std::cout << "Default AMateria created with type: " << type << std::endl;
+	if (DEBUG)
+		std::cout << "Default AMateria created with type: " << type << std::endl;
 }
 
 AMateria::AMateria(std::string const & type) : type(type)
 {
-	std::cout << "Creating AMateria with type: " << type << std::endl;
+	if (DEBUG)
+		std::cout << "Creating AMateria with type: " << type << std::endl;
 }
 
 AMateria::AMateria(const AMateria &materia)
 {
-	std::cout << "Copying AMateria with type: " << materia.type << std::endl;
+	if (DEBUG)
+		std::cout << "Copying AMateria with type: " << materia.type << std::endl;
 	*this = materia;
 }
 
@@ -32,15 +35,16 @@ AMateria	&AMateria::operator=(const AMateria &materia)
 {
 	if (this != &materia)
 	{
-		std::cout << "Assigning AMateria with type: " << materia.type << std::endl;
+		if (DEBUG)
+			std::cout << "Assigning AMateria with type: " << materia.type << std::endl;
 		this->type = materia.type;
 	}
 	return (*this);
 }
 
 AMateria::~AMateria()
-{
-	std::cout << "Deleting AMateria with type: " << this->type << std::endl;
+{	if (DEBUG)
+		std::cout << "Deleting AMateria with type: " << this->type << std::endl;
 }
 
 std::string const	&AMateria::getType() const
@@ -50,5 +54,6 @@ std::string const	&AMateria::getType() const
 
 void	AMateria::use(ICharacter& target)
 {
-	std::cout << "Using AMateria of type: " << this->type << " on target: " << target.getName() << std::endl;
+	if (DEBUG)
+		std::cout << "Using AMateria of type: " << this->type << " on target: " << target.getName() << std::endl;
 }

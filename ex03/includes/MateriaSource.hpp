@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gbazart <gabriel.bazart@gmail.com>         +#+  +:+       +#+        */
+/*   By: gbazart <gbazart@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 16:50:10 by gbazart           #+#    #+#             */
-/*   Updated: 2024/02/11 00:38:50 by gbazart          ###   ########.fr       */
+/*   Updated: 2024/02/19 13:39:35 by gbazart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MATREARIASOURCE_HPP
 # define MATREARIASOURCE_HPP
 
+#include "main.h"
 #include <string>
 #include "AMateria.hpp"
 #include "IMateriaSource.hpp"

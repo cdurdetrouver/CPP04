@@ -6,7 +6,7 @@
 /*   By: gbazart <gbazart@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 18:06:58 by gbazart           #+#    #+#             */
-/*   Updated: 2024/02/10 16:06:57 by gbazart          ###   ########.fr       */
+/*   Updated: 2024/02/19 13:58:53 by gbazart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ Dog	&Dog::operator=(const Dog &dog)
 	if (this != &dog)
 	{
 		this->type = dog.type;
+		delete this->brain;
+		this->brain = new Brain();
+		this->brain = dog.brain;
 	}
 	return (*this);
 }
